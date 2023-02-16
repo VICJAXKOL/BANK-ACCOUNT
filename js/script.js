@@ -83,3 +83,44 @@ function showAccount(accountId) {
 function getSelectedAccount() {
   return parseInt($("#accSelect").children(":selected").attr("id"));
 }
+function attachAccountListeners() {
+  $("#buttons").on("click", ".deleteButton", function() {
+    bank.deleteAccount(this.id);
+    $("#balanceDisp").hide();
+    displayAccount(bank);
+  });
+}
+
+
+// UI LOGIC //
+$(document).ready(function () {
+  $("input:radio[value=new]").click(function () {
+    $("#current").hide();
+    $("#new").fadeIn("slow");
+  });
+  $("input:radio[value=current]").click(function () {
+    $("#current").fadeIn("slow");
+    $("#new").hide();
+  });
+});
+
+
+$(document).ready(function () {
+  attachAccountListeners();
+  $(".newAccForm").submit(function (event) {
+    event.preventDefault();
+    let name = $("#inputName").val();
+    let deposit = parseInt($("#initialDeposit").val());
+    if (deposit < 1000) {
+      $("#balanceDisp").hide();
+      $("#ammount2").show();
+    } else {
+      $("#ammount2").hide();
+      let newAccount = new account(name, deposit);
+      bank.addAccount(newAccount);
+      $("#inputName").val("");
+      $("#initialDeposit").val("");
+      displayAccount(bank);
+      showAccount(getSelectedAccount());
+    }
+  });
