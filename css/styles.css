@@ -1,0 +1,48 @@
+.header{
+  font-size: 35px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.card{
+  width: 400px;
+  height: 300px;
+}
+.shead{
+  font-size:23px ;
+}
+#current{
+  display: none;
+}
+#balanceDisp {
+  display: none;
+}
+.negative {
+  color: red;
+}
+#ammount{
+  background-color: red;
+  width: 250px;
+  display: none;
+  font-weight: bold;
+}
+.container{
+  background-color: rgb(126, 92, 92);
+  height: 900px;
+}
+body{
+  width: 100%;
+}
+#ammount2{
+  background-color: red;
+  width: 390px;
+  display: none;
+  font-weight: bold;
+}
+#new{
+  padding-left: 350px;
+}
+#current{
+  padding-left: 350px;
+}
+.radio{
+  margin-left: 350px;
+}
