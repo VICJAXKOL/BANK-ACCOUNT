@@ -124,3 +124,26 @@ $(document).ready(function () {
       showAccount(getSelectedAccount());
     }
   });
+
+  
+  $("#transactionForm").submit(function (event) {
+    event.preventDefault();
+    let deposit = $("#newDeposit").val();
+    let withdraw = $("#newWithdraw").val();
+    $("#newDeposit").val("");
+    $("#newWithdraw").val("");
+    if (getSelectedAccount()) {
+      if (deposit) {
+        bank.findAccount(getSelectedAccount()).makeDeposit(deposit);
+      }
+      if (withdraw) {
+        bank.findAccount(getSelectedAccount()).makeWithdrawl(withdraw);
+      }
+      showAccount(getSelectedAccount());
+    }
+  });
+  $("#accSelect").change(function () {
+    showAccount(getSelectedAccount());
+  });
+});
+
