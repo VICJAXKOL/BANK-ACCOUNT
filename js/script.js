@@ -58,3 +58,14 @@ account.prototype.getHistory = function () {
   }
   return output;
 }
+let bank = new bankAccount();
+
+function displayAccount(bank) {
+  let accList = $("#accSelect");
+  let accHTML = "";
+  Object.keys(bank.accounts).forEach(function (key) {
+    const account = bank.findAccount(key);
+    accHTML += "<option id=" + account.id + ">" + account.name + "</option>";
+  });
+  accList.html(accHTML);
+}
