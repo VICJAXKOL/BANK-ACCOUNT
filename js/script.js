@@ -24,3 +24,14 @@ bankAccount.prototype.findAccount = function (id) {
   }
   return false;
 };
+function account(name, balance) {
+  this.name = name
+  this.balance = balance
+  this.history = ["Credit:$" + balance]
+}
+
+account.prototype.makeDeposit = function (amount) {
+  $("#ammount").hide();
+  this.balance += parseInt(amount);
+  this.history.push("Credit:$" + amount);
+}
