@@ -69,3 +69,17 @@ function displayAccount(bank) {
   });
   accList.html(accHTML);
 }
+function showAccount(accountId) {
+  const account = bank.findAccount(accountId);
+  $("#balanceDisp").show();
+  $("#accName").html(account.name);
+  $("#accNum").html(account.id);
+  $("#curBal").html("$" + account.balance);
+  $("#accHistory").html(account.getHistory());
+  let buttons = $("#buttons");
+  buttons.empty();
+  buttons.append("<button class='deleteButton btn btn-danger' id=" +  + account.id + ">Delete</button>");
+}
+function getSelectedAccount() {
+  return parseInt($("#accSelect").children(":selected").attr("id"));
+}
